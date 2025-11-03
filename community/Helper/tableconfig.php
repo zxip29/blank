@@ -14,11 +14,26 @@ class Tableconfig {
     }
 
     private function initializelogic() {
-        echo "hello world";
+        $this->userauth();
     }
 
     private function creationmethod($stru) {
         $this->conn->query($stru);
+    }
+
+    private function userauth() {
+        $users = "CREATE TABLE IF NOT EXISTS users (
+            userid INT(11) NOT NULL,
+            userprivate INT(11) NOT NULL,
+            username VARCHAR(255) NOT NULL,
+            divice VARCHAR(255) NOT NULL,
+            status TEXT NOT NULL,
+            creation VARCHAR(255) NOT NULL,
+            plan VARCHAR(255) NOT NULL,
+            profile VARCHAR(255) NOT NULL
+        )";
+
+        $this->creationmethod($users);
     }
 }
 
