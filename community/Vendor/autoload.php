@@ -4,7 +4,8 @@ spl_autoload_register(function ($class) {
         'Connection\\Get\\'               => __DIR__ . '/../Connection/',
         'Usermodels\\V1\\Usercontrollers\\'       => __DIR__. '/../Usermodels/V1/Usercontrollers/',
         'Helper\\' => __DIR__.'/../Helper/',
-        'Response\\' => __DIR__.'/../Response/'
+        'Response\\' => __DIR__.'/../Response/',
+        'Token\\' => __DIR__.'/../Token/'
     ];
 
     foreach ($mappings as $prefix => $base_dir) {
