@@ -4,7 +4,7 @@ return [
     "username"=>"root",
     "password"=>"",
     "databasename"=>"ngasanngal",
-    "profile"=>"https://",
+    "profile"=>"http://localhost/community/Storage/Profile/",
     "normal"=>"https://",
     "version"=>"1.0",
     "mainapi"=>"http://localhost/inedex.php"
