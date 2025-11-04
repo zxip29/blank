@@ -38,7 +38,7 @@ class Index {
     }
 }
 
-$get = file_get_contents('php:://input');
+$get = file_get_contents('php://input');
 if(empty($get)) {
     Index::errorlog(
         [
