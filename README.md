@@ -1,4 +1,4 @@
-1.register api - http://localhost/community/index.php
+##1.register api - http://localhost/community/index.php
 request json body - {
     "request":"1000",
     "username":"ngasanngal",
@@ -18,7 +18,7 @@ response json body - {
 
 
 
-2.authorized api - http://localhost/community/index.php
+##2.authorized api - http://localhost/community/index.php
 
 request json body = {
     "request":"2000",
@@ -37,4 +37,27 @@ response json body - {
     "accountstatus":1 //true
     "username":"ngasanngal",
     "profile":"http://localhost/community/Storage/Profile/asdf.png"
+}
+
+
+##3.authorization/login api - http://localhost/community/index.php 
+
+request json body = {
+    "request":"3000",
+    "email":"ngasanngal@gmail.com",
+    "password":"ngasannga.password",
+    "device":"redminote6pro"
+}
+
+response json body - {
+    "status":"401" //account not found
+    --------------------------------
+    "status":"402" //wrong password
+    --------------------------------
+    "status":"403" //account closed 
+    --------------------------------
+    "status":"404" //device not equal
+    --------------------------------
+    "status":"200" //success
+    "userprivate":"129323"
 }
