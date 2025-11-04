@@ -26,6 +26,9 @@ class Index {
             case '2000':
                 $this->user->authorized($data);
             break;
+            case '3000':
+                $this->user->authorization($data);
+            break;
             default:
                 self::errorlog(
                     [

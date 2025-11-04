@@ -72,6 +72,59 @@ class User {
 
     }
 
+    public function authorization($data) {
+        if(!$this->checkuser("email", $data->email)) {
+            $this->response->sendresponsebody(
+                [
+                    "status"=>"401"
+                ]
+            );
+        }
+        $email = $data->email;
+
+        $stmt = $this->conn->prepare("SELECT * FROM users WHERE email=?");
+        $stmt -> bind_param("s", $email);
+        $stmt -> execute();
+
+        $res = $stmt -> get_result();
+        $row = $res -> fetch_assoc();
+
+        $userpassword = $data->password;
+        $userdevice = $data->device;
+
+        if(!password_verify($userpassword, $row['password'])) {
+            $this->response->sendresponsebody(
+                [
+                    "status"=>"402"
+                ]
+            );
+        }
+
+        if(!$row['status']) {
+            $this->response->sendresponsebody(
+                [
+                    "status"=>"403"
+                ]
+            );
+        }
+
+        if($row['device'] != $userdevice) {
+            $this->response->sendresponsebody(
+                [
+                    "status"=>"404"
+                ]
+            );
+        }
+
+        $this->response->sendresponsebody(
+            [
+                "status"=>"200",
+                "userprivate"=>$row['userprivate']
+            ]
+        );
+
+    }
+
     public  function usercreation($data) {
         $userprivate = bin2hex(openssl_random_pseudo_bytes(124));
         $username = $data->username ?? '';
