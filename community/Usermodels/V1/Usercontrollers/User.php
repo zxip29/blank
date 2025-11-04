@@ -50,7 +50,7 @@ class User {
             "username"=>$row['username'],
             "profile"=>$row['profile'],
             "device"=>$row['device'],
-            "status"=>$row['status'],
+            "accountstatus"=>$row['status'],
             "plan"=>$row['plan'],
             "userprivate"=>$row['userprivate']
         ];
