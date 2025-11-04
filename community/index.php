@@ -48,7 +48,9 @@ if(empty($get)) {
     );
 }
 
+$decode = json_decode($get);
+
 $data = new Index();
-$data -> manage($data);
+$data -> manage($decode);
 
 ?>
