@@ -57,7 +57,11 @@ class User {
     }
 
     private function freeplan($userinfo) {
-        
+        $userinfo['status'] = "200";
+        unset($userinfo['device']);
+        unset($userinfo['plan']);
+        unset($userinfo['userprivate']);
+        $this->response->sendresponsebody($userinfo);
     }
 
     private function normalplan($userinfo) {
