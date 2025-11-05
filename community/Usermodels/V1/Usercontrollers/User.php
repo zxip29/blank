@@ -30,7 +30,7 @@ class User {
     }
 
     private function userinfo($userprivate) {
-        $stmt = $this->conn->prepare("SELECT * FROM users WHERE userprivate");
+        $stmt = $this->conn->prepare("SELECT * FROM users WHERE userprivate=?");
         $stmt -> bind_param("s", $userprivate);
         $stmt -> execute();
 
