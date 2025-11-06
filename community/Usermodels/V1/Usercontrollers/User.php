@@ -52,7 +52,8 @@ class User {
             "device"=>$row['device'],
             "accountstatus"=>$row['status'],
             "plan"=>$row['plan'],
-            "userprivate"=>$row['userprivate']
+            "userprivate"=>$row['userprivate'],
+            "status"=>$row['status']
         ];
     }
 
